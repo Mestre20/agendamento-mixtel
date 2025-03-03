@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="agendamento.MainPage">
+
+    <ContentPage.Background>
+        <!-- Gradiente de fundo mais suave e profissional -->
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#f0f9ff" Offset="0.0" />
+            <GradientStop Color="#e1f2ff" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto,*,Auto"
+              Padding="20"
+              RowSpacing="15"
+              MinimumHeightRequest="{OnPlatform Android=800, iOS=800}">
+        
+            <!-- Cabeçalho -->
+            <VerticalStackLayout Grid.Row="0" 
+                                Spacing="10" 
+                                Margin="0,20,0,10">
+                <Image Source="rrinfra_logo.png"
+                       HeightRequest="250"
+                       WidthRequest="300"
+                       HorizontalOptions="Center"
+                       Aspect="AspectFit" />
+                
+                <Label Text="RR INFRA"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="#2b2b2b"
+                       HorizontalOptions="Center" />
+                
+                <Label Text="Sistema de Agendamento"
+                       FontSize="16"
+                       TextColor="#666666"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10" />
+            </VerticalStackLayout>
+
+            <!-- Cards de Informações -->
+            <Grid Grid.Row="1" 
+                  ColumnDefinitions="*,*"
+                  ColumnSpacing="10"
+                  Margin="0,5">
+                
+                <!-- Card Agendadas para Hoje -->
+                <Frame Grid.Column="0"
+                       BackgroundColor="White"
+                       CornerRadius="12"
+                       Padding="10"
+                       HasShadow="True"
+                       MaximumWidthRequest="180"
+                       HeightRequest="100"
+                       HorizontalOptions="End">
+                    
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Agendadas Hoje"
+                               FontSize="14"
+                               TextColor="#666666"
+                               HorizontalOptions="Center"/>
+                        
+                        <Label x:Name="ClientesHojeLabel"
+                               Text="0 O.S"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               TextColor="#2b2b2b"
+                               HorizontalOptions="Center"/>
+                        
+                        <Label x:Name="TecnicoLabel"
+                               Text="Nenhum técnico"
+                               FontSize="12"
+                               TextColor="#666666"
+                               LineBreakMode="TailTruncation"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Card O.S. Finalizadas -->
+                <Frame Grid.Column="1"
+                       BackgroundColor="White"
+                       CornerRadius="12"
+                       Padding="10"
+                       HasShadow="True"
+                       MaximumWidthRequest="180"
+                       HeightRequest="100"
+                       HorizontalOptions="Start">
+                    
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Finalizadas Hoje"
+                               FontSize="14"
+                               TextColor="#666666"
+                               HorizontalOptions="Center"/>
+                        
+                        <Label x:Name="OsFinalizadasLabel"
+                               Text="0 O.S"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               TextColor="#2b2b2b"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- Botões Principais -->
+            <VerticalStackLayout Grid.Row="3" 
+                                Spacing="15" 
+                                VerticalOptions="Center"
+                                Margin="0,10">
+                
+                <!-- Botão Iniciar Agendamento -->
+                <Frame CornerRadius="12"
+                       HasShadow="True"
+                       BorderColor="Transparent"
+                       BackgroundColor="#ffffff"
+                       Padding="0"
+                       HeightRequest="50"
+                       Margin="10,5"
+                       MaximumWidthRequest="300"
+                       HorizontalOptions="Center">
+                    
+                    <Button Text="Iniciar Agendamento"
+                            FontSize="18"
+                            TextColor="#ffffff"
+                            BackgroundColor="Transparent"
+                            Clicked="OnIniciarAgendamentoClicked">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#4CAF50" Offset="0.0" />
+                                <GradientStop Color="#45a049" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </Frame>
+
+                <!-- Botão Exibir O.S. Baixadas -->
+                <Frame CornerRadius="12"
+                       HasShadow="True"
+                       BorderColor="Transparent"
+                       BackgroundColor="#ffffff"
+                       Padding="0"
+                       HeightRequest="50"
+                       Margin="10,5"
+                       MaximumWidthRequest="300"
+                       HorizontalOptions="Center">
+                    
+                    <Button Text="Exibir O.S. Baixadas"
+                            FontSize="18"
+                            TextColor="#ffffff"
+                            BackgroundColor="Transparent"
+                            Clicked="OnExibirOsBaixadasClicked">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#2196F3" Offset="0.0" />
+                                <GradientStop Color="#1976D2" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- Rodapé -->
+            <Label Grid.Row="4"
+                   Text="© 2024 RR INFRA"
+                   TextColor="#666666"
+                   FontSize="12"
+                   HorizontalOptions="Center"
+                   VerticalOptions="End"
+                   Margin="0,10,0,5" />
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

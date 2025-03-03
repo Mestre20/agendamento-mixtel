@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="agendamento.TecnicoDetalhesPage">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#f0f9ff" Offset="0.0" />
+            <GradientStop Color="#e1f2ff" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,*,Auto"
+              Padding="20"
+              RowSpacing="15">
+
+            <!-- Cabeçalho com Foto -->
+            <Frame Grid.Row="0"
+                   BackgroundColor="White"
+                   CornerRadius="20"
+                   Margin="0,20,0,10"
+                   Padding="20"
+                   HasShadow="True"
+                   MaximumWidthRequest="400"
+                   HorizontalOptions="Center">
+                
+                <VerticalStackLayout Spacing="15">
+                    <!-- Foto do Técnico -->
+                    <Frame CornerRadius="75"
+                           IsClippedToBounds="True"
+                           HeightRequest="150"
+                           WidthRequest="150"
+                           Padding="0"
+                           BorderColor="Transparent"
+                           HasShadow="True"
+                           HorizontalOptions="Center">
+                        
+                        <Image x:Name="TecnicoImage"
+                               Aspect="AspectFill"
+                               HeightRequest="150"
+                               WidthRequest="150"/>
+                    </Frame>
+
+                    <!-- Nome do Técnico -->
+                    <Label x:Name="TecnicoNome"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="#2b2b2b"
+                           HorizontalOptions="Center"/>
+
+                    <!-- Cargo -->
+                    <Label Text="Técnico de Campo"
+                           FontSize="16"
+                           TextColor="#666666"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Estatísticas -->
+            <Frame Grid.Row="1"
+                   BackgroundColor="White"
+                   CornerRadius="15"
+                   Margin="0,10"
+                   Padding="15"
+                   HasShadow="True"
+                   MaximumWidthRequest="400"
+                   HorizontalOptions="Center">
+                
+                <Grid ColumnDefinitions="*,*"
+                      RowDefinitions="Auto,Auto"
+                      RowSpacing="15"
+                      ColumnSpacing="15">
+                    
+                    <!-- Meta do Mês -->
+                    <VerticalStackLayout Grid.Column="0" Grid.Row="0">
+                        <Label Text="Meta do Mês"
+                               FontSize="14"
+                               TextColor="#666666"
+                               HorizontalOptions="Center"/>
+                        <Button Text="Visualizar"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                TextColor="White"
+                                BackgroundColor="#4CAF50"
+                                CornerRadius="10"
+                                Padding="15,8"
+                                Clicked="OnMetaButtonClicked"/>
+                    </VerticalStackLayout>
+
+                    <!-- O.S. Realizadas -->
+                    <VerticalStackLayout Grid.Column="1" Grid.Row="0">
+                        <Label Text="O.S. Realizadas"
+                               FontSize="14"
+                               TextColor="#666666"
+                               HorizontalOptions="Center"/>
+                        <Button Text="Consultar"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                TextColor="White"
+                                BackgroundColor="#2196F3"
+                                CornerRadius="10"
+                                Padding="15,8"
+                                Clicked="OnOsButtonClicked"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- Rodapé -->
+            <Label Grid.Row="3"
+                   Text="© 2024 RR INFRA"
+                   TextColor="#666666"
+                   FontSize="12"
+                   HorizontalOptions="Center"
+                   VerticalOptions="End"
+                   Margin="0,10,0,5" />
+        </Grid>
+    </ScrollView>
+</ContentPage>
